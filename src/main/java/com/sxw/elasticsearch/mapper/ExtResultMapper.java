@@ -4,6 +4,7 @@ package com.sxw.elasticsearch.mapper;
 import com.fasterxml.jackson.core.JsonEncoding;
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonGenerator;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.beanutils.PropertyUtils;
 import org.elasticsearch.action.get.GetResponse;
 import org.elasticsearch.action.get.MultiGetItemResponse;
@@ -39,6 +40,7 @@ import java.util.*;
  * 类名称：ExtResultMapper
  * 类描述：自定义结果映射类
  */
+@Slf4j
 @Component
 public class ExtResultMapper extends AbstractResultMapper {
 
@@ -135,8 +137,9 @@ public class ExtResultMapper extends AbstractResultMapper {
 
     private String buildJSONFromFields(Collection<SearchHitField> values) {
         JsonFactory nodeFactory = new JsonFactory();
+        ByteArrayOutputStream stream = null;
         try {
-            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+            stream = new ByteArrayOutputStream();
             JsonGenerator generator = nodeFactory.createGenerator(stream, JsonEncoding.UTF8);
             generator.writeStartObject();
             for (SearchHitField value : values) {
@@ -155,6 +158,14 @@ public class ExtResultMapper extends AbstractResultMapper {
             return new String(stream.toByteArray(), Charset.forName("UTF-8"));
         } catch (IOException e) {
             return null;
+        } finally {
+            if (null != stream){
+                try {
+                    stream.close();
+                } catch (IOException e) {
+                    log.error("IOException:", e);
+                }
+            }
         }
     }
 
