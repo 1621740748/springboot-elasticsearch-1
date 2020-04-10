@@ -88,9 +88,12 @@ public class DouBanMovieTest {
      */
     @Test
     public void savaMovieToES() throws IOException {
-        File file = new File("/Users/suxiongwei/Documents/ziyuan/movie_json");
+        File file = new File("/Users/smzdm/project/springboot-elasticsearch/src/main/resources/data");
         File[] files = file.listFiles();
         for (File file1 : files) {
+            if (file1.getName().equals("movie_category.json")){
+                continue;
+            }
             FileReader fileReader = new FileReader(file1);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             String line;
