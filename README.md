@@ -12,7 +12,7 @@
 
 #### 2.1 电影数据的获取
 
-爬取了豆瓣的不同类型的电影作为搜索的基础数据，数据在项目的文件夹下可以找到，大家学习的时候就不用再去爬取了，爬虫需谨慎。电影数据路径：https://github.com/suxiongwei/springboot-elasticsearch/tree/elasticsearch-jest/src/main/resources/data
+抓取了豆瓣的不同类型的电影作为搜索的基础数据，数据在项目的文件夹下可以找到，大家学习的时候就不用再去抓取了。电影数据路径：https://github.com/suxiongwei/springboot-elasticsearch/tree/elasticsearch-jest/src/main/resources/data
 
 #### 2.2 启动项目
 
