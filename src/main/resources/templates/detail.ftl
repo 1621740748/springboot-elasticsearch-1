@@ -11,21 +11,21 @@
 </head>
 <body class="container">
     <h3>
-        ${movie.name!""}
+        ${movie.title!""}
         <#if movie.translatedName??><#list movie.translatedName as tn>/${tn}</#list></#if>
         <#if movie.year??>(${movie.year})</#if>
     </h3>
-    <#if movie.coverUrl??>
-    <p><img src="${movie.coverUrl!}" class="img-thumbnail" onerror="notFound()"></p>
+    <#if movie.cover_url??>
+    <p><img src="${movie.cover_url!}" class="img-thumbnail" onerror="notFound()"></p>
     </#if>
     <#if movie.director??>
     <p>导演：${movie.director}</p>
     </#if>
-    <#if movie.actor??>
-    <p>主演：<#list movie.actor as actor>${actor}<#if actor_has_next>/</#if></#list></p>
+    <#if movie.actors??>
+    <p>主演：<#list movie.actors as actor>${actor}<#if actor_has_next>/</#if></#list></p>
     </#if>
-    <#if movie.category??>
-    <p>类型：<#list movie.category as category>${category}<#if category_has_next>/</#if></#list></p>
+    <#if movie.types??>
+    <p>类型：<#list movie.types as category>${category}<#if category_has_next>/</#if></#list></p>
     </#if>
     <#if movie.origin??>
     <p>制片地区：${movie.origin}</p>
@@ -42,12 +42,10 @@
     <#if movie.updateDay??>
     <p>更新日期：${movie.updateDay}</p>
     </#if>
-    <#if movie.downloadUrl??>
+    <#if movie.url??>
     <section>
         <h4>下载地址:</h4>
-        <#list movie.downloadUrl as du>
-        <p><a href="${du}">${du}</a></p>
-        </#list>
+        <p><a href="${movie.url}">${movie.url}</a></p>
     </section>
     </#if>
 </body>
