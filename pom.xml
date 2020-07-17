@@ -28,6 +28,7 @@
         <dependency>
             <groupId>org.elasticsearch</groupId>
             <artifactId>elasticsearch</artifactId>
+            <version>7.8.0</version>
         </dependency>
 
         <dependency>
