@@ -5,10 +5,10 @@ spring:
     active: dev
   elasticsearch:
     jest:
-      uris: http://localhost:9200
+      uris: http://192.168.0.104:9200
       read-timeout: 10000
-      username: user
-      password: secret
+      username: 
+      password: 
   devtools:
     restart:
       exclude:

@@ -72,7 +72,7 @@ public class DouBanMovieTest {
             ResponseEntity<String> responseEntity = this.restTemplate.exchange(requestEntity, String.class);
             String body = responseEntity.getBody();
             String name = jsonObject.get("type_name").toString().replaceAll("\"","") + ".json";
-            File file = new File("/Users/suxiongwei/Desktop/" + name);
+            File file = new File("/data/temp/Desktop/" + name);
             if (!file.exists()){
                 file.createNewFile();
                 FileWriter fileWriter = new FileWriter(file);
@@ -88,7 +88,7 @@ public class DouBanMovieTest {
      */
     @Test
     public void savaMovieToES() throws IOException {
-        File file = new File("/Users/smzdm/project/springboot-elasticsearch/src/main/resources/data");
+        File file = new File("/data/springboot-elasticsearch-1/src/main/resources/data");
         File[] files = file.listFiles();
         for (File file1 : files) {
             if (file1.getName().equals("movie_category.json")){
